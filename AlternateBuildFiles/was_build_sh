@@ -1,0 +1,12 @@
+#!/bin/bash
+mkdir -p $PREFIX/bin
+
+cp *.py $PREFIX/bin
+cp -r model $PREFIX/bin
+cp -r images $PREFIX/bin
+cp -r toolbox $PREFIX/bin
+
+#apt-get update && apt-get install -y libsm6 libxext6 libxrender-dev libtiff5-dev git
+brew install git
+
+pip install git+https://github.com/FZJ-INM1-BDA/pytiff.git@0701f28e5862c26024e8daa34201005b16db4c8f

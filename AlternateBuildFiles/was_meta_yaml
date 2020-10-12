@@ -1,0 +1,30 @@
+package:
+  name: unet-coreograph
+  version: 0.1.0
+
+source:
+  git_rev:
+  git_url: https://github.com/ohsu-comp-bio/UNetCoreograph
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+
+  run:
+      - python
+      - tensorflow ==1.15
+      - cython
+      - scikit-image ==0.14.2
+      - matplotlib
+      - tifffile ==2020.2.16
+      - scipy ==1.1.0
+      - opencv
+
+test:
+  imports:
+    -
+
+about:
+  home:
