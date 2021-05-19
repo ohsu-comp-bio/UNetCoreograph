@@ -527,14 +527,18 @@ class UNet2D:
 def identifyNumChan(path):
    tiff = tifffile.TiffFile(path)
    shape = tiff.pages[0].shape
+   numChan=None
    for i, page in enumerate(tiff.pages):
-	   if page.shape != shape:
-		   numChan = i
-		   return numChan
-		   break
-#	   else:
-#		   raise Exception("Did not find any pyramid subresolutions") 
+      if page.shape != shape:
+         numChan = i
+         return numChan
+         break
+#      else:
+#         raise Exception("Did not find any pyramid subresolutions") 
 
+   if not numChan:
+      numChan = len(tiff.pages)
+      return numChan
 
 def getProbMaps(I,dsFactor,modelPath):
    hsize = int((float(I.shape[0]) * float(0.5)))
